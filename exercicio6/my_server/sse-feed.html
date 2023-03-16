@@ -1,0 +1,25 @@
+<html>
+<script language="javascript">
+    const socket = new WebSocket('ws://localhost:8080');
+
+    socket.addEventListener('message', async (event) => {
+
+        const text = await new Response(event.data).text();
+
+        let div = document.getElementById("feed");
+        div.append(text);
+
+        var linebreak = document.createElement('br');
+        div.appendChild(linebreak);
+
+    });
+</script>
+
+<body>
+    <form>
+        <div id="feed">
+            </feed>
+    </form>
+</body>
+
+</html>
